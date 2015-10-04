@@ -1,4 +1,3 @@
-#this script will allow me to automatically scrape (get info) my grades from the illuminate website
 import requests
 
 user = "596125"
@@ -7,17 +6,21 @@ myurl = "https://smmusd.illuminatehc.com/login"
 #rr = requests.get(myurl, auth = (user, passwd))
 #session = requests.session
 payload_login = {
+#'action': 'login_check',
 'username': 596125,
 'password': 123456
 }
 with requests.Session() as ss:
-	con = ss.post("https://smmusd.illuminatehc.com/login")
+	con = ss.post(myurl, data=payload_login)
 
-#go to https://smmusd.illuminatehc.com/login
-#under username type 596125
-#under password type 123456
-#scrape grades
-#print to screen
+print con.text
+
+#not logging in!
 
 
-#in further use, try to send text of grades
+#tt = requests.get(myurl, auth=('596125', '123456'))
+
+#print tt.text
+
+
+#'action': 'login_check',
